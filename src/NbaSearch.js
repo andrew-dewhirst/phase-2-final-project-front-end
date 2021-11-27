@@ -1,6 +1,6 @@
 import React from "react";
 
-function NflSearch({ searchTerm, setSearchTerm }) {
+function NbaSearch({ searchTerm, setSearchTerm }) {
 
   function handleSearch(event) {
     setSearchTerm(event.target.value)
@@ -20,4 +20,4 @@ function NflSearch({ searchTerm, setSearchTerm }) {
   );
 }
 
-export default NflSearch
+export default NbaSearch

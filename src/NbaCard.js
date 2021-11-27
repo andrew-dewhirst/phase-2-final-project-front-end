@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function NflCard({ stadiumName, teamName, city, state, image }) {
+function NbaCard({ stadiumName, teamName, city, state, image }) {
   const [attended, setAttended] = useState(false)
 
   function handleAttendanceClick() {
@@ -22,4 +22,4 @@ function NflCard({ stadiumName, teamName, city, state, image }) {
   );
 }
 
-export default NflCard
+export default NbaCard

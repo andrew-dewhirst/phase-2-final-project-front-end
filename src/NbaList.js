@@ -1,11 +1,11 @@
 import React from "react";
-import NflCard from "./NflCard";
+import NbaCard from "./NbaCard";
 
-function NflList({ nflStadiums }) {
+function NbaList({ nbaStadiums }) {
   return (
     <ul>
-      {nflStadiums.map((stadium) =>
-      <NflCard
+      {nbaStadiums.map((stadium) =>
+      <NbaCard
         key={stadium.id}
         stadiumName={stadium.stadium_name}
         teamName={stadium.team_name}
@@ -18,4 +18,4 @@ function NflList({ nflStadiums }) {
   );
 }
 
-export default NflList
+export default NbaList
