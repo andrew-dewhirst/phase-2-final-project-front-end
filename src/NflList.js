@@ -1,17 +1,26 @@
 import React from "react";
 import NflCard from "./NflCard";
 
-function NflList({ nflStadiums }) {
+function NflList({ nflStadiums, setNflStadiums }) {
+
+  function handleAttendanceClick(updatedItem) {
+    const updatedStadiums = nflStadiums.map((stadium) => {
+      if (stadium.id === updatedItem.id) {
+        return updatedItem;
+      } else {
+        return stadium;
+      }
+    });
+    setNflStadiums(updatedStadiums);
+  }
+
   return (
-    <ul>
+    <ul className="cards">
       {nflStadiums.map((stadium) =>
       <NflCard
         key={stadium.id}
-        stadiumName={stadium.stadium_name}
-        teamName={stadium.team_name}
-        city={stadium.city}
-        state={stadium.state}
-        image={stadium.image}
+        stadium={stadium}
+        handleAttendanceClick={handleAttendanceClick}
       />
       )}
     </ul>

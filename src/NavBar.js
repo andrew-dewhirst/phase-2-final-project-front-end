@@ -5,11 +5,12 @@ function NavBar() {
 
   const navStyle = {
     display: "inline-block",
-    width: "100px",
+    width: "25%",
     padding: "12px",
-    margin: "0 6px 6px",
-    background: "blue",
+    margin: "0 4% 6px",
+    background: "black",
     color: "white",
+    textAlign: "center",
   };
 
   return (
@@ -17,37 +18,44 @@ function NavBar() {
       <NavLink to ="/"
       exact
       style={navStyle}
-      activeStyle={{background: "red"}}
+      activeStyle={{background: "#696969"}}
       >
         Home
       </NavLink>
-      <NavLink to ="/nfl"
+      <NavLink to ="/stadiums/nfl"
       exact
       style={navStyle}
-      activeStyle={{background: "red"}}
+      activeStyle={{background: "#696969"}}
       >
         NFL
       </NavLink>
-      <NavLink to ="/mlb"
+      <NavLink to ="/stadiums/mlb"
       exact
       style={navStyle}
-      activeStyle={{background: "red"}}
+      activeStyle={{background: "#696969"}}
       >
         MLB
       </NavLink>
-      <NavLink to ="/nba"
+      <NavLink to ="/stadiums/nba"
       exact
       style={navStyle}
-      activeStyle={{background: "red"}}
+      activeStyle={{background: "#696969"}}
       >
         NBA
       </NavLink>
-      <NavLink to ="/nhl"
+      <NavLink to ="/stadiums/nhl"
       exact
       style={navStyle}
-      activeStyle={{background: "red"}}
+      activeStyle={{background: "#696969"}}
       >
         NHL
+      </NavLink>
+      <NavLink to ="/stadiums/mylist"
+      exact
+      style={navStyle}
+      activeStyle={{background: "#696969"}}
+      >
+        My List
       </NavLink>
     </div>
   )

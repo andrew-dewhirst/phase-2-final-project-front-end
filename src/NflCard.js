@@ -1,22 +1,32 @@
-import React, { useState } from "react";
+import React from "react";
 
-function NflCard({ stadiumName, teamName, city, state, image }) {
-  const [attended, setAttended] = useState(false)
+function NflCard({ stadium, handleAttendanceClick }) {
 
-  function handleAttendanceClick() {
-    setAttended(!attended)
-  }
+  function handleButtonClick() {
+    fetch(`http://localhost:3000/stadiums/${stadium.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        attended: !stadium.attended,
+      }),
+   })
+      .then((r) => r.json())
+      .then((updatedItem) => handleAttendanceClick(updatedItem));
+}
+
 
   return (
-    <ul>
-      <h4>{stadiumName}</h4>
-      <img src={image} alt={stadiumName} />
-            <p>Team: {teamName}</p>
-      <p>Location: {city}, {state}</p>
-      {attended ? (
-        <button>Crossed off the List</button>
+    <ul className="card">
+      <h4>{stadium.stadium_name}</h4>
+      <img src={stadium.image} alt={stadium.stadium_name} />
+            <p>Team: {stadium.team_name}</p>
+      <p>Location: {stadium.city}, {stadium.state}</p>
+      {stadium.attended ? (
+        <button onClick={handleButtonClick}>Crossed off the List</button>
       ) : (
-        <button onClick={handleAttendanceClick}>I've Been There!</button>
+        <button onClick={handleButtonClick}>I've Been There!</button>
       )}
     </ul>
   );

@@ -7,7 +7,7 @@ function NflSearch({ searchTerm, setSearchTerm }) {
   }
 
   return (
-    <div>
+    <div className="searchbar">
       <label htmlFor="search">Search Stadiums:</label>
       <input
         value={searchTerm}
