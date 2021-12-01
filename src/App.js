@@ -1,43 +1,41 @@
 import './App.css';
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Route, Switch } from 'react-router-dom';
 import NavBar from './NavBar';
 import Home from './Home';
-import Nfl from './Nfl';
-import Mlb from './Mlb';
-import Nba from './Nba';
-import Nhl from './Nhl';
+import League from './League';
 import MyList from './MyList';
 
 function App() {
+  const [stadiums, setStadiums] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
-  // const match=useRouteMatch();
-  // console.log(match)
+  useEffect(() => {
+    fetch('http://localhost:3000/stadiums')
+      .then((r) => r.json())
+      .then((data) => {
+        setStadiums(data)
+      });
+  }, []);
+
+  const stadiumsToDisplay = stadiums.filter((stadium) => stadium.team_name.toUpperCase().includes(searchTerm.toUpperCase()));
+  const myListOfStadiums = stadiums.filter((stadium) => stadium.attended === true);
 
   return (
     <div>
       <NavBar />
       <Switch>
-        <Route exact path = '/'>
+        <Route exact path='/'>
           <Home />
         </Route>
-        <Route exact path='/stadiums/nfl'>
-          <Nfl />
+        <Route exact path='/stadiums/:league'>
+          <League searchTerm={searchTerm} setSearchTerm={setSearchTerm} stadiumsToDisplay={stadiumsToDisplay} setStadiums={setStadiums} />
         </Route>
-        <Route exact path='/stadiums/mlb'>
-          <Mlb />
-        </Route>
-        <Route exact path='/stadiums/nba'>
-          <Nba />
-        </Route>
-        <Route exact path='/stadiums/nhl'>
-          <Nhl />
-        </Route>
-        <Route exact path='/stadiums/mylist'>
-          <MyList />
+        <Route exact path='/mylist'>
+          <MyList myListOfStadiums={myListOfStadiums}/>
         </Route>
       </Switch>
-    </div>
+    </div >
   );
 }
 

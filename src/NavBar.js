@@ -50,7 +50,7 @@ function NavBar() {
       >
         NHL
       </NavLink>
-      <NavLink to ="/stadiums/mylist"
+      <NavLink to ="/mylist"
       exact
       style={navStyle}
       activeStyle={{background: "#696969"}}

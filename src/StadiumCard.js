@@ -1,6 +1,6 @@
 import React from "react";
 
-function NflCard({ stadium, handleAttendanceClick }) {
+function StadiumCard({ stadium, handleAttendanceClick }) {
 
   function handleButtonClick() {
     fetch(`http://localhost:3000/stadiums/${stadium.id}`, {
@@ -32,4 +32,4 @@ function NflCard({ stadium, handleAttendanceClick }) {
   );
 }
 
-export default NflCard
+export default StadiumCard

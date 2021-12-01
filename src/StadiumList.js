@@ -1,23 +1,23 @@
 import React from "react";
-import NflCard from "./NflCard";
+import StadiumCard from "./StadiumCard";
 
-function NflList({ nflStadiums, setNflStadiums }) {
+function StadiumList({ filteredStadiums, setStadiums }) {
 
   function handleAttendanceClick(updatedItem) {
-    const updatedStadiums = nflStadiums.map((stadium) => {
+    const updatedStadiums = filteredStadiums.map((stadium) => {
       if (stadium.id === updatedItem.id) {
         return updatedItem;
       } else {
         return stadium;
       }
     });
-    setNflStadiums(updatedStadiums);
+    setStadiums(updatedStadiums);
   }
 
   return (
     <ul className="cards">
-      {nflStadiums.map((stadium) =>
-      <NflCard
+      {filteredStadiums.map((stadium) =>
+      <StadiumCard
         key={stadium.id}
         stadium={stadium}
         handleAttendanceClick={handleAttendanceClick}
@@ -27,4 +27,4 @@ function NflList({ nflStadiums, setNflStadiums }) {
   );
 }
 
-export default NflList
+export default StadiumList

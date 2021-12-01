@@ -1,13 +1,13 @@
 import React from "react";
 
-function NbaSearch({ searchTerm, setSearchTerm }) {
+function Search({ searchTerm, setSearchTerm }) {
 
   function handleSearch(event) {
     setSearchTerm(event.target.value)
   }
 
   return (
-    <div>
+    <div className="searchbar">
       <label htmlFor="search">Search Stadiums:</label>
       <input
         value={searchTerm}
@@ -20,4 +20,4 @@ function NbaSearch({ searchTerm, setSearchTerm }) {
   );
 }
 
-export default NbaSearch
+export default Search
