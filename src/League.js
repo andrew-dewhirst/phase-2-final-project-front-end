@@ -11,7 +11,7 @@ function League({ stadiumsToDisplay, setStadiums, searchTerm, setSearchTerm }) {
   return (
     <div>
       <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
-      <StadiumList filteredStadiums = {filteredStadiums} setStadiums={setStadiums} />
+      <StadiumList filteredStadiums = {filteredStadiums} stadiumsToDisplay={stadiumsToDisplay} setStadiums={setStadiums} />
     </div>
   )
 }

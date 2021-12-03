@@ -19,7 +19,6 @@ function App() {
   }, []);
 
   const stadiumsToDisplay = stadiums.filter((stadium) => stadium.team_name.toUpperCase().includes(searchTerm.toUpperCase()));
-  const myListOfStadiums = stadiums.filter((stadium) => stadium.attended === true);
 
   return (
     <div>
@@ -32,7 +31,7 @@ function App() {
           <League searchTerm={searchTerm} setSearchTerm={setSearchTerm} stadiumsToDisplay={stadiumsToDisplay} setStadiums={setStadiums} />
         </Route>
         <Route exact path='/mylist'>
-          <MyList myListOfStadiums={myListOfStadiums}/>
+          <MyList stadiumsToDisplay={stadiumsToDisplay} setStadiums={setStadiums}/>
         </Route>
       </Switch>
     </div >

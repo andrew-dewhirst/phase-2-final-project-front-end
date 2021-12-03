@@ -1,9 +1,10 @@
 import React from "react";
+import MyStadiumList from "./MyStadiumList";
 
-function MyList() {
+function MyList({ stadiumsToDisplay, setStadiums }) {
   return (
     <div>
-      Testing
+      <MyStadiumList stadiumsToDisplay={stadiumsToDisplay} setStadiums={setStadiums}/>
     </div>
   )
 }

@@ -1,10 +1,10 @@
 import React from "react";
 import StadiumCard from "./StadiumCard";
 
-function StadiumList({ filteredStadiums, setStadiums }) {
+function StadiumList({ filteredStadiums, stadiumsToDisplay, setStadiums }) {
 
   function handleAttendanceClick(updatedItem) {
-    const updatedStadiums = filteredStadiums.map((stadium) => {
+    const updatedStadiums = stadiumsToDisplay.map((stadium) => {
       if (stadium.id === updatedItem.id) {
         return updatedItem;
       } else {
