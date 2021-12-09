@@ -2,8 +2,6 @@ import React, { useState } from "react";
 
 function StadiumCard({ stadium, handleAttendanceClick }) {
 
-  const [likes, setLikes] = useState(0);
-
   function handleButtonClick() {
     fetch(`http://localhost:3000/stadiums/${stadium.id}`, {
       method: "PATCH",
@@ -18,11 +16,6 @@ function StadiumCard({ stadium, handleAttendanceClick }) {
       .then((updatedItem) => handleAttendanceClick(updatedItem));
 }
 
-  function handleLikesClick() {
-    setLikes(likes + 1)
-  }
-
-
   return (
     <ul className="card">
       <h4>{stadium.stadium_name}</h4>
@@ -34,7 +27,6 @@ function StadiumCard({ stadium, handleAttendanceClick }) {
       ) : (
         <button onClick={handleButtonClick}>I've Been There!</button>
       )}
-      <button onClick={handleLikesClick}>Likes: {likes}</button>
     </ul>
   );
 }
