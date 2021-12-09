@@ -18,7 +18,7 @@ function App() {
       });
   }, []);
 
-  const stadiumsToDisplay = stadiums.filter((stadium) => stadium.team_name.toUpperCase().includes(searchTerm.toUpperCase()));
+  const stadiumsToDisplay = stadiums.filter((stadium) => stadium.team_name.toLowerCase().includes(searchTerm.toLowerCase()));
 
   return (
     <div>
